@@ -189,7 +189,7 @@ def find_cohort_by_student_name(student_list):
 def find_name_duplicates(filename):
     """TODO: Return a set of student last names that have duplicates.
 
-    Iterate over the data to find any last names that exist across all cohorts.
+    Iterate over the data to find any duplicate last names that exist in each cohort.
     Use set operations (set math) to create and return a set of these names.
 
     For example:
@@ -245,18 +245,50 @@ def find_house_members_by_student_name(student_list):
      Oliver Wood
 
      """
+    winter_16 = set()
+    spring_16 = set()
+    summer_16 = set()
+    fall_15 = set()
+    gryffindor = set()
+    slytherin = set()
+    hufflepuff = set()
+    ravenclaw = set()
 
-    # Code goes here
+    student_name = raw_input("Who are you looking for?\n")
 
-    return
+    for record in student_list:
+        full_name = record[0]
+        if record[-1] == 'Fall 2015':
+            fall_15.add(full_name)
+        elif record[-1] == "Summer 2016":
+            summer_16.add(full_name)
+        elif record[-1] == "Spring 2016":
+            spring_16.add(full_name)
+        elif record[-1] == "Winter 2016":
+            winter_16.add(full_name)
+        elif record[1] == "Gryffindor":
+            gryffindor.add(full_name)    
+        elif record[1] == "Slytherin":
+            slytherin.add(full_name)    
+        elif record[1] == "Hufflepuff":
+            hufflepuff.add(full_name) 
+        elif record[1] == "Ravenclaw":
+            ravenclaw.add(full_name)    
+       
+    
+    print "{} was in {} with the {} cohort".format(full_name, record[1], record[-1])
+
+
+    
+    return "Student Not found"
 
 #############################################################################
 # Here is some useful code to run these functions without doctests!
 
-# student_list = all_students_tuple_list("cohort_data.txt")
+student_list = all_students_tuple_list("cohort_data.txt")
 # print find_cohort_by_student_name(student_list)
 
-# find_house_members_by_student_name(all_students_data)
+find_house_members_by_student_name(student_list)
 
 
 ##############################################################################
