@@ -188,6 +188,10 @@ def find_cohort_by_student_name(student_list):
 
 def find_name_duplicates(filename):
     """TODO: Return a set of student last names that have duplicates.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3048ab48acb0aaffaa2e483697d5a22d10335b0a
     Iterate over the data to find any duplicate last names that exist in each cohort.
     Use set operations (set math) to create and return a set of these names.
     For example:
@@ -201,6 +205,7 @@ def find_name_duplicates(filename):
     fall_15 = set()
 
     with open(filename) as cohort_data:
+<<<<<<< HEAD
 
         for line in cohort_data:
             member_data = line.rstrip().split('|')
@@ -214,6 +219,21 @@ def find_name_duplicates(filename):
             elif member_data[-1] == "Winter 2016":
                 winter_16.add(surname)
 
+=======
+
+        for line in cohort_data:
+            member_data = line.rstrip().split('|')
+            surname = member_data[1]
+            if member_data[-1] == 'Fall 2015':
+                fall_15.add(surname)
+            elif member_data[-1] == "Summer 2016":
+                summer_16.add(surname)
+            elif member_data[-1] == "Spring 2016":
+                spring_16.add(surname)
+            elif member_data[-1] == "Winter 2016":
+                winter_16.add(surname)
+
+>>>>>>> 3048ab48acb0aaffaa2e483697d5a22d10335b0a
     return winter_16 & spring_16 & summer_16 & fall_15
 
 
@@ -255,13 +275,21 @@ def find_house_members_by_student_name(student_list):
 
     return "Student not found"
 
+    
+    return "Student Not found"
+
+
 #############################################################################
 # Here is some useful code to run these functions without doctests!
 
 student_list = all_students_tuple_list("cohort_data.txt")
 # print find_cohort_by_student_name(student_list)
 
+<<<<<<< HEAD
 print find_house_members_by_student_name(student_list)
+=======
+find_house_members_by_student_name(student_list)
+>>>>>>> 3048ab48acb0aaffaa2e483697d5a22d10335b0a
 
 
 ##############################################################################
