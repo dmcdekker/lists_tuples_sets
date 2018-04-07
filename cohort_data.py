@@ -1,7 +1,6 @@
 """Functions to parse a file containing student data."""
 # filename = "cohort_data.txt"
 
-
 def unique_houses(filename):
     """TODO: Return a set of student houses.
 
@@ -114,6 +113,7 @@ def hogwarts_by_house(filename):
             elif student_data[-1] == "I":
                 instructors.append(name)
 
+ 
         all_hogwarts.extend([dumbledores_army, gryffindor, 
                                 hufflepuff, ravenclaw, slytherin,
                                 ghosts, instructors])                        
@@ -178,7 +178,7 @@ def find_cohort_by_student_name(student_list):
     for record in student_list:
         if record[0].lower() == student_name.lower():
             return "{} was in the {} cohort.".format(record[0], record[-1])
-     
+        
     return "Student not found."
 
 
@@ -188,10 +188,6 @@ def find_cohort_by_student_name(student_list):
 
 def find_name_duplicates(filename):
     """TODO: Return a set of student last names that have duplicates.
-<<<<<<< HEAD
-=======
-
->>>>>>> 3048ab48acb0aaffaa2e483697d5a22d10335b0a
     Iterate over the data to find any duplicate last names that exist in each cohort.
     Use set operations (set math) to create and return a set of these names.
     For example:
@@ -247,6 +243,7 @@ def find_house_members_by_student_name(student_list):
 
      """
     input_name = raw_input("Who are you looking for?\n")
+  
     for student_tuple in student_list:
         if student_tuple[0].lower() == input_name.lower():
             print "{} was in house {} in the {} cohort.".format(student_tuple[0], student_tuple[1], student_tuple[-1])
@@ -255,9 +252,10 @@ def find_house_members_by_student_name(student_list):
             for house in student_list:
                 if house[0] != student_tuple[0] and house[1] == student_tuple[1] and house[-1] == student_tuple[-1]:
                     print "{}".format(house[0])
+            return ""  
 
-    return "Student Not found"
 
+    return "Student not found"
 
 #############################################################################
 # Here is some useful code to run these functions without doctests!
@@ -265,11 +263,7 @@ def find_house_members_by_student_name(student_list):
 student_list = all_students_tuple_list("cohort_data.txt")
 # print find_cohort_by_student_name(student_list)
 
-
 print find_house_members_by_student_name(student_list)
-
-find_house_members_by_student_name(student_list)
-
 
 
 ##############################################################################
